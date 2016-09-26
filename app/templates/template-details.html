@@ -2,12 +2,20 @@
 	<a href="#!/templates">Go back</a>
 	<br><br>
 	<div class="col-md-4">
-		<img ng-src="images/blue.jpg" alt="blue images" class="img-full">
+		<img ng-src="images/{{mainImage}}" alt="big images" class="img-full">
+		<div class="row">
+			<div ng-repeat="image in template.images | limitTo:4">
+			<div class="col-md-3">
+				<img class="img-full" ng-src="images/{{image.name}}" alt="selection of images" ng-click="setImage(image)">
+			</div>
+			</div>
+		</div>
 	</div>
 	<div class="col-md-8">
-		<h3>Blue Template</h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus enim odio, quidem ipsa at, tenetur ut, dignissimos vitae deserunt neque, vero unde vel necessitatibus! Dolores quibusdam veritatis id laudantium eveniet!</p>
-		<h4>$19.19</h4>
+		<h3>{{template.name}}</h3>
+		<p>{{template.description}}</p>
+		<p>Type: {{template.type}}</p>
+		<h4>{{template.price | currency}}</h4>
 		BUY IT
 	</div>
 </div>
